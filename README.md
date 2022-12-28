@@ -2,10 +2,16 @@
 
 A lightweight version of [Playwright's codegen](https://playwright.dev/docs/cli/#record-a-script) that only runs in the CLI, doesn't highlight, and uses the external Playwright APIs.
 
+/media/demo.mov
+
 ## Usage
 
 ```bash
+git clone https://github.com/lawrencecchen/playwright-codegen-lite
+cd playwright-codegen-lite
+
 npm install
+
 npm run start
 ```
 
