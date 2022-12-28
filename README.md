@@ -15,6 +15,16 @@ npm install
 npm run start
 ```
 
+## Vendor
+
+The injected recorder (`vendor/playwright/packages/playwright-core/src/server/injected/recorder.ts`) has been modified to remove polling and highlighting. Additionally, we also need to bundle and copy over the `CodeGenerator` and `JavaScriptLanguageGenerator` modules from Playwright.
+
+```bash
+git submodule update --init --recursive
+(cd vendor/playwright && npm install && npm run build)
+npm run build:vendor # sh build_vendor.sh
+```
+
 ## About
 
 Much of the code is simply `packages/playwright-core/src/server/recorder.ts` rewritten to instead use the external Playwright APIs.
@@ -26,6 +36,7 @@ Much of the code is simply `packages/playwright-core/src/server/recorder.ts` rew
 ## Todos
 
 - [ ] make proper CLI and pre-compile TypeScript
+- [ ] vendor `src/types.ts` from Playwright instead of copying
 - [ ] configurable URL via CLI
 - [ ] fix inline script execution for Content Security Policy (migrate to `addInitScript`?)
 - [ ] support languages other than JavaScript (also add ESM output)

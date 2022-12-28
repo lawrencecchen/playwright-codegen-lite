@@ -1,0 +1,3 @@
+[submodule "vendor/playwright"]
+	path = vendor/playwright
+	url = https://github.com/microsoft/playwright

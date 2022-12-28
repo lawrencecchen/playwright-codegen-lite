@@ -1,11 +1,9 @@
 import { Frame, chromium } from "playwright";
-import * as consoleApiSource from "./generated/consoleApiSource";
-import * as injectedScriptSource from "./generated/injectedScriptSource";
-import * as recorderSource from "./generated/recorderSource";
-import * as utilityScriptSource from "./generated/utilityScriptSource";
 import type { Action, ActionInContext, FrameDescription } from "./types";
 import { rewriteLines } from "./utils";
 import { CodeGenerator } from "./vendor/codeGeneratorBundle";
+import * as injectedScriptSource from "./vendor/generated/injectedScriptSource";
+import * as recorderSource from "./vendor/generated/recorderSource";
 import { JavaScriptLanguageGenerator } from "./vendor/javascriptBundle";
 
 const browserUrl = "https://demo.playwright.dev/todomvc";
@@ -102,10 +100,8 @@ async function main() {
   }
 
   async function injectScripts() {
-    await injectScript(utilityScriptSource.source, "__UtilityScript");
     await injectScript(injectedScriptSource.source, "__InjectedScript");
     await injectScript(recorderSource.source, "__Recorder");
-    await injectScript(consoleApiSource.source, "__ConsoleApi");
 
     await page.addScriptTag({
       content: `!globalThis.__injectedScript && (globalThis.__injectedScript = new globalThis.__InjectedScript(true, "javascript", "idk", 0, "chromium", []));

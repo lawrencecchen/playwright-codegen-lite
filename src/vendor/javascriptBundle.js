@@ -3174,9 +3174,9 @@ var JavaLocatorFactory = class {
         const attrString = attrs.length ? `, new ${clazz}.GetByRoleOptions()${attrs.join("")}` : "";
         return `getByRole(AriaRole.${toSnakeCase(body).toUpperCase()}${attrString})`;
       case "has-text":
-        return `filter(new ${clazz}.LocatorOptions().setHasText(${this.toHasText(body)}))`;
+        return `filter(new ${clazz}.FilterOptions().setHasText(${this.toHasText(body)}))`;
       case "has":
-        return `filter(new ${clazz}.LocatorOptions().setHas(${body}))`;
+        return `filter(new ${clazz}.FilterOptions().setHas(${body}))`;
       case "test-id":
         return `getByTestId(${this.quote(body)})`;
       case "text":
