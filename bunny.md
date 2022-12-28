@@ -1,10 +1,10 @@
 ```ts
 declare module globalThis {
-	let __pw_recorderPerformAction: (action: Action) => Promise<void>;
-	let __pw_recorderRecordAction: (action: Action) => Promise<void>;
-	// let __pw_recorderState: () => Promise<UIState>; // unused
-	// let __pw_recorderSetSelector: (selector: string) => Promise<void>;
-	// let __pw_refreshOverlay: () => void; // unused
+  let __pw_recorderPerformAction: (action: Action) => Promise<void>;
+  let __pw_recorderRecordAction: (action: Action) => Promise<void>;
+  // let __pw_recorderState: () => Promise<UIState>; // unused
+  // let __pw_recorderSetSelector: (selector: string) => Promise<void>;
+  // let __pw_refreshOverlay: () => void; // unused
 }
 ```
 
@@ -13,6 +13,7 @@ declare module globalThis {
 - `utils/generate_injected.js` compiles the injected `recorder.ts` (`packages/playwright-core/src/server/injected/recorder.ts`) to `packages/playwright-core/src/generated/recorderSource.ts`
 
 bunx esbuild packages/playwright-core/src/server/recorder.ts --platform=node --bundle --outfile=recorderBundle.js
+bunx esbuild packages/playwright-core/src/server/recorder/codeGenerator.ts --platform=node --bundle --outfile=codeGeneratorBundle.js
 
 - yoink server recorder (with recorderApp commented out)
 

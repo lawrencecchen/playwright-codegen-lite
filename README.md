@@ -2,11 +2,7 @@
 
 A lightweight version of [Playwright's codegen](https://playwright.dev/docs/cli/#record-a-script) that only runs in the CLI, doesn't highlight, and uses the external Playwright APIs.
 
-
-
 https://user-images.githubusercontent.com/54008264/209814311-f71099ea-c8cc-4319-b382-838c8c84ac76.mov
-
-
 
 ## Usage
 
@@ -34,7 +30,7 @@ Much of the code is simply `packages/playwright-core/src/server/recorder.ts` rew
 - [ ] fix inline script execution for Content Security Policy (migrate to `addInitScript`?)
 - [ ] support languages other than JavaScript (also add ESM output)
 - [ ] handle back/forward navigation (and other page events)
-- [ ] add flag to `npx codegen ...` CLI instead
+- [ ] add flag to `npx playwright codegen ...` CLI and upstream it instead
 - [ ] gracefully handle page close
 - [ ] add browsers other than chromium
 - [ ] figure out which generated sources actually have to be injected
